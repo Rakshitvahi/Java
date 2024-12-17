@@ -1,23 +1,35 @@
 package com.rakshitvahi.github;
 
 import java.util.EmptyStackException;
+import java.util.Scanner;
 import java.util.Stack;
 
 public class BalancedBrackets {
 
 	public static void main(String args[]) {
-		String input = "{[(1+2)*(3+2)]/(8/2)}";
-		// Code to check if the brackets are balanced in the input using Stacks
-		Stack<Character> stack = new Stack<>();
-		try {
-			if (isValid(input, stack) && stack.isEmpty()) {
-				System.out.println("Balanced");
-			} else {
+
+		int i = 1;
+		while (i == 1) {
+			Scanner reader = new Scanner(System.in);
+			System.out.print("Enter the expression: ");
+			String input = reader.nextLine();
+			// String input = "{[(1+2)*(3+2)]/(8/2)}";
+			// Code to check if the brackets are balanced in the input using Stacks
+
+			Stack<Character> stack = new Stack<>();
+			try {
+				if (isValid(input, stack) && stack.isEmpty()) {
+					System.out.println("Balanced");
+				} else {
+					System.out.println("NOT Balanced");
+				}
+			} catch (EmptyStackException e) {
 				System.out.println("NOT Balanced");
 			}
-		} catch (EmptyStackException e) {
-			System.out.println("NOT Balanced");
+			System.out.print("Enter 1 to try again/0 to exit: ");
+			i = reader.nextInt();
 		}
+		System.out.print("Have a great day, bye!");
 
 	}
 
